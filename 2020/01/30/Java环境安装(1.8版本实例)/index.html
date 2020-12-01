@@ -1,0 +1,635 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.jsdelivr.net/gh/Teimlz/teimlz.github.io@master/image/page/favicon.jpg">
+  <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/Teimlz/teimlz.github.io@master/image/page/favicon.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="这是我的小笔记本,主要要用记录学习过程,当然也会记录一些随心笔记.">
+  <meta name="author" content="筏执">
+  <meta name="keywords" content="">
+  <title>JAVA环境安装(1.8示例) - 筏执的小笔记本</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.1.2/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.5","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"copy_btn":true,"image_zoom":{"enable":true},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":true,"baidu":"6c1436d3df29ec7c0cda293342e60e93","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":1279445150,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>筏执的笔记本</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                网站
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('https://cdn.jsdelivr.net/gh/Teimlz/teimlz.github.io@master/image/page/HomePage.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="JAVA环境安装(1.8示例)">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-01-30 14:20" pubdate>
+        2020年1月30日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.8k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      20
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">JAVA环境安装(1.8示例)</h1>
+            
+            <div class="markdown-body">
+              <p>(转至自己的简书,所以时间比较早)</p>
+<blockquote>
+<p>Java所需要了解的一些事</p>
+</blockquote>
+<p>首先，对于JAVA来说，JAVA环境配置需要了解一下几个内容。</p>
+<ol>
+<li><p>JDK(Java Development Kit) 是 Java 语言的软件开发工具包(<a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://baike.baidu.com/item/SDK">SDK</a>)。即，需要开发JAVA软件的话，JDK是必须要的。</p>
+<p> JDK中分为SE,EE,ME三个版本。‘</p>
+<p>SE(JavaSE，standard edition ：标准版，是我们通常使用的一个版本，从JDK 5.0开始，改名为Java SE。</p>
+<p>EE(JavaEE，enterprise edition）：企业版，使用这种JDK开发J2EE应用程序，从JDK 5.0开始，改名为Java EE。从2018年2月26日开始，J2EE改名为Jakarta EE。</p>
+<p> ME(J2ME，micro edition）：主要用于移动设备、嵌入式设备上的java应用程序，从JDK 5.0开始，改名为Java ME。</p>
+</li>
+<li><p> JRE(Java Runtime Environment）是 Java 语言的运行环境。 其包括Java虚拟机（JVM），Java核心库和支持文件。即，如果要运行JAVA程序的话，JRE是必须的。</p>
+</li>
+<li><p>JVM(Java Virtual Machine）：是Java<a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://baike.baidu.com/item/%E8%99%9A%E6%8B%9F%E6%9C%BA">虚拟机</a>，JVM是一种用于计算设备的规范，它是一个虚构出来的计算机，是通过在实际的计算机上仿真模拟各种计算机功能来实现的。</p>
+<p>（目前Java的最高版本是15版本，但是不推荐安装其最高版本，因为市面上的Java版本大部分是1.7，1.8版本，如果Java版本安装过高，会出现不兼容现象。）</p>
+</li>
+</ol>
+<blockquote>
+<p>Java环境安装</p>
+</blockquote>
+<p>首先，访问官网，下载安装包。</p>
+<p>  官网链接：  <em><a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://www.oracle.com/technetwork/java/javase/downloads/index.html">Java SE下载地址</a></em></p>
+<p>​            <a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://www.oracle.com/cn/java/technologies/java-ee-glance.html">Java EE下载地址</a></p>
+<p>​            <a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://www.oracle.com/java/technologies/javameoverview.html">Java ME下载地址</a></p>
+<p>（其实JAVA SE下载地址中已经包含了其它的下载地址。另外，Java SE已经满足日常学习。没有必要要求，无需安装Java EE。Java是由Sun公司开发的，后来被甲骨文公司所购买。）</p>
+<p><strong><em>访问官网下载</em></strong></p>
+<p> 1.访问官网，下载相对应的 Java 版本安装包。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/21048345-e78ff19e4766742d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" alt="img"></p>
+<p>访问官网</p>
+<p>2.选择自己相对应的系统版本安装包</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/21048345-325d04be6cf02a78.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" alt="img"></p>
+<p>下载相对应的安装包</p>
+<p><strong><em>Windows版本安装</em></strong></p>
+<p>  1.访问官网下载相对应安装包。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/21048345-c1864001c0487bf0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" alt="img"></p>
+<p>选择相应的包</p>
+<p>2.有甲骨文账号的登陆，没有甲骨文账号的注册之后再登陆后即可下载。（=-=我不知道为什么我居然访问不了）</p>
+<p>3.用管理员权限打开下载好的软件。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/21048345-d1933abb5824727f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" alt="img"></p>
+<p>打开的界面</p>
+<p>下一步</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/21048345-1ec4c09a5cbfaa28.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" alt="img"></p>
+<p>选择JDK的位置</p>
+<p>点击下一步，操作一部分会弹出JRE的安装程序。安装的进度条也会卡住。请注意。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/21048345-d6581def4bd22e84.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" alt="img"></p>
+<p>JRE安装</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/21048345-af403db4dcaccd6a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" alt="img"></p>
+<p>安装成功！</p>
+<p>你以为这样就安装成功了吗？不，我们可能还需要配置一些环境变量。</p>
+<p>4.配置环境变量</p>
+<p>打开环境变量设置有多种方法。</p>
+<p>  方法一：通过我的电脑-&gt;<strong>双击此电脑</strong>-&gt;计算机-&gt;属性-&gt;高级系统设置-&gt;环境变量。</p>
+<p>  方法二：Windows键+R打开运行（或者在开始里面找到运行）-&gt;输入 <strong>sysdm.cpl</strong> 之后确定 -&gt;高级-&gt;环境变量。</p>
+<p>这里使用方法一：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/21048345-30da6018432f7a98.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" alt="img"></p>
+<p>打开我的电脑</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/21048345-db180c0ba76be044.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" alt="img"></p>
+<p>点击计算机</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/21048345-76181cbb02be8e64.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" alt="img"></p>
+<p>点击属性</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/21048345-d1acd38065652fb2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" alt="img"></p>
+<p>点击高级系统设置</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/21048345-1fb2390cb1d56520.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" alt="img"></p>
+<p>点击环境变量</p>
+<p>Java配置环境变量需要两个设置，一个JAVA_HOME，一个是CLASSPATH.</p>
+<p>JAVA_HOME:用于指示Java开发环境。告诉操作系统在哪个目录下可以寻找到相对应的Java开发软件，同时也是部分IDE所需要的。</p>
+<p>CLASSPATH:用于告诉Java执行环境，在哪些目录下可以找到所要执行的Java程序所需要的类或者包。 </p>
+<p>下面，就配置Java的环境变量</p>
+<p>1.在系统变量中，新键环境变量</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/21048345-24550c527c2335f2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" alt="img"></p>
+<p>新建环境变量</p>
+<p>2.在变量名中填写 <strong>JAVA_HOME</strong> ，在变量值中填写之前所安装的JDK的位置。确定即可。我之前安装设置在D盘下的JAVA目录下的JDK目录。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/21048345-a4e2ef64b18d90db.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" alt="img"></p>
+<p>配置JAVA_HOME</p>
+<p>3.然后在系统变量中找到变量为Path,选中之后点击编辑。如果不是长条，就按下图操作。</p>
+<p>  （1）.新建一个，然后在框中输入一个小点（英文） .</p>
+<p>  （2）.继续新建一个，然后在框中输入 %JAVA_HOME%\bin</p>
+<p>如图所示</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/21048345-f483cff29b994402.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" alt="img"></p>
+<p>配置Path</p>
+<p>如果不是上图类型，就在变量值框中输入以下语句: <strong>;.;%JAVA_HOME%\bin</strong></p>
+<p>4.接着继续新建一个系统变量，在变量名中填写 <strong>CLASSPATH</strong> ,在变量值中填写</p>
+<p> <strong>.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar</strong></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/21048345-6a14664e7ee78c87.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" alt="img"></p>
+<p>配置CLASSPATH</p>
+<p>(注意：JAVA版本在1.5以上，不配置CLASSPATH也可以正常编译和运行JAVA)</p>
+<p>5，确认保存退出即可完成配置。</p>
+<p>6.检验是否安装成功:</p>
+<p>​    1.首先 Windows键+R，弹出运行，（也可以直接在开始中搜索）</p>
+<p>​    2.输入cmd，弹出cmd控制台。</p>
+<p>（上述两个操作可以在开始直接搜索cmd运行控制台）.  </p>
+<p>​    3.输入 javac，看是否出现下图</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/21048345-2446a64129c9655b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" alt="img"></p>
+<p>成功示意图</p>
+<p>  4.输入 java，看是否出现下图</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/21048345-5c53f45712bd2f10.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" alt="img"></p>
+<p>成功示意图</p>
+<p>（javac是java的编译器，java是java的运行。）</p>
+<p>Windows安装Java完成！</p>
+<p>  <strong><em>Linux 版本安装\</em></strong></p>
+<p><strong><em>Linux版本的Java可以直接搜索安装。这个就不用多说了，下面是到官方下载相应的包，解压后安装过程。\</em></strong></p>
+<p>1.访问官网下载相对应的包</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/21048345-8204e32743bff836.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" alt="img"></p>
+<p>下载Linux版本的压缩包</p>
+<p>2.创建目录</p>
+<p>在usr目录下创建Java目录。</p>
+<p>在终端中输入指令</p>
+<p><strong>sudo mkdir /usr/local/Java</strong></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/21048345-f7cd1238668f5435.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" alt="img"></p>
+<p>创建文件夹</p>
+<p>3.将Java解压到目录</p>
+<p>1.先切换到包含Java安装包的文件夹中</p>
+<p>2.解压文件到/usr/local/Java中</p>
+<p><strong>sudo tar -zxvf 你Java安装包的名字 -C /usr/local/Java</strong></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/21048345-66dfce614be5850f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" alt="img"></p>
+<p>解压安装包</p>
+<p>3.配置Java环境变量  </p>
+<p>（先移动到/usr/local/Java目录下，查看文件名）</p>
+<p>  (1).先输入<strong>sudo vi /etc/profile</strong> ，编辑配置文件。  </p>
+<p>  (2).然后将光标移动到最后的位置，按下按钮 i 键，进入编辑模式</p>
+<p>  (3).添加如下语句</p>
+<p>​    <strong>set java environment</strong></p>
+<p>​    <strong>JAVA_HOME=/usr/local/Java/<del>jdk1.8.0_241</del></strong>  </p>
+<p>​    <strong>JRE_HOME=/usr/local/Java/<del>jdk1.8.0_241</del>/jre</strong>  </p>
+<p>​    <strong>CLASS_PATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</strong></p>
+<p>​    <strong>PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin</strong></p>
+<p>​    <strong>export JAVA_HOME JRE_HOME CLASS_PATH PATH</strong></p>
+<p>  (注意：删除线包括的部分（jdk1.8.0_241）是由java包解压后的文件名所决定。也就是/usr/local/Java目录下的文件夹。如果Java目录不是安装在/usr/local/Java目录下，请自行更改)</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/21048345-6995d91fe4a4daae.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" alt="img"></p>
+<p>4.在编辑模式下，按下<strong>Esc</strong>键退出编辑模式，然后在<strong>Shift+:**，进入命令模式，输入</strong>wq<strong>后保存退出。（不保存退出是</strong>q!**）</p>
+<p>5.对修改的配置进行设置生效</p>
+<p>在命令行中输入</p>
+<p><strong>sudo -s</strong></p>
+<p><strong>source /etc/profile</strong></p>
+<p>6.测试Java是否安装成功</p>
+<p>(1.测试javac)</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/21048345-d9fe8ee00a7b2054.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" alt="img"></p>
+<p>javac成功示意图</p>
+<p>（2.测试java）</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/21048345-97deee27bd1b57e4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" alt="img"></p>
+<p>java成功示意图</p>
+<p>Linux Java环境安装完成。</p>
+<blockquote>
+<p>总结</p>
+</blockquote>
+<p>Java安装较难的地方是难在配置环境变量上面，需要了解环境变量是怎么回事以及如何配置。其它的都还好。</p>
+<p>声明:在文章中借鉴了部分百度百科以及CSDN上面的内容。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Java/">Java</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Java/">Java</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%BC%96%E7%A8%8B/">编程</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E7%8E%AF%E5%A2%83/">环境</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/02/05/WindowsTerminal%E9%85%8D%E7%BD%AE/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">WindowsTerminal配置</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+    <!-- cnzz Analytics Icon -->
+    <span id="cnzz_stat_icon_1279445150" style="display: none"></span>
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":200})
+    NProgress.start()
+    document.addEventListener('DOMContentLoaded', function() {
+      window.NProgress && window.NProgress.inc();
+    })
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.staticfile.org/jquery/3.5.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.staticfile.org/tocbot/4.12.0/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+
+
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      var _hmt = _hmt || [];
+      (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?6c1436d3df29ec7c0cda293342e60e93";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <!-- cnzz Analytics -->
+    <script defer src="//s4.cnzz.com/z_stat.php?id=1279445150&show=pic"
+            type="text/javascript"></script>
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
