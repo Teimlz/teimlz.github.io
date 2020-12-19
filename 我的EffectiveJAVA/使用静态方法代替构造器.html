@@ -17,9 +17,23 @@
   <meta name="description" content="这是我的小笔记本,主要要用记录学习过程,当然也会记录一些随心笔记.">
   <meta name="author" content="筏执">
   <meta name="keywords" content="">
-  <title>分类 - 筏执的小笔记本</title>
+  <title>使用静态方法代替构造器 - 筏执的小笔记本</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.1.2/styles/github-gist.min.css" />
+    
+  
+
+  
 
 
 
@@ -158,7 +172,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="分类">
+            <span class="h2" id="subtitle" title="使用静态方法代替构造器">
               
             </span>
 
@@ -182,197 +196,37 @@
               <div class="col-12 col-md-10 m-auto">
                 
 
+<div class="page-content">
+  <p>&emsp;&emsp;在Java中,经常会见到以下方法:</p>
+<pre><code class="hljs reasonml">String trueStr = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">String</span>.</span></span>value<span class="hljs-constructor">Of(<span class="hljs-params">true</span>)</span>; <span class="hljs-comment">//类型转换</span>
 
 
+final String <span class="hljs-literal">[]</span>arrays = &#123;<span class="hljs-string">&quot;Hello World&quot;</span>,<span class="hljs-string">&quot;Hello Effective Java&quot;</span>,<span class="hljs-string">&quot;Hello Effective Java&quot;</span>&#125;;
+List&lt;String&gt; strings = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Arrays</span>.</span></span><span class="hljs-keyword">as</span><span class="hljs-constructor">List(<span class="hljs-params">arrays</span>)</span>; <span class="hljs-comment">//数组转List</span>
 
+Calendar instance = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Calendar</span>.</span></span>get<span class="hljs-constructor">Instance()</span>; <span class="hljs-comment">//获取单利对象</span>
 
+ boolean isEmpty = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">StringUtils</span>.</span></span>is<span class="hljs-constructor">Empty(<span class="hljs-params">str</span>)</span>;<span class="hljs-comment">//判断字符串是否为空</span></code></pre>
 
+<p>&emsp;&emsp;这些,通常拥有着<code>public</code>,<code>static</code>的特点的方法,能够通过参数或者无参数,创建出需要的对象.</p>
+<p>&emsp;&emsp;这些方法,就是静态工厂方法.通常都躺在我们的工具箱里面,安安静静的等等着我们去调用.<br>(注意,静态工厂方法与设计模式中的工厂方法模式不同.)</p>
+<p>&emsp;&emsp;提供静态工厂方法而不是公有的构造器,这样既有优势,也有劣势.</p>
+<blockquote>
+<p>优势</p>
+</blockquote>
+<ol>
+<li><p>它们拥有名称.<br>如果构造器的参数本身没有确切地描述正被返还的对象,那么具有适当名称的静态工厂会更容易适用,代码也更容易阅读.因为我相信静态方法名应该是十分明确的.</p>
+</li>
+<li><p>不必要每次调用它们的时候都创建一个对象.<br>这使得不可变类(被final声明的类)可以使用预先构建好的实例(对象),或者将构建好的实例缓存起来,进行重复利用,从而避免不必要的重复对象.</p>
+</li>
+<li><p>可以返回原返回类型的任何子类型.<br>这使得我们在选择返回对象的类时,就拥有了更大的灵活性.,这使得API可以返回对象,同时又不会使对象的类变成公有的.</p>
+</li>
+<li><p>可以通过参数的不同,而返回不同的实例.  </p>
+</li>
+<li><p>方法返回的对象所示的类,在编写包含该静态工厂方法的类时可以不存在.</p>
+</li>
+</ol>
 
-<div class="category-list">
-  
-  
-  
-  
-    
-    
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckiw11yz8000aowshalqgadek" role="tab" data-toggle="collapse" href="#collapse-ckiw11yz8000aowshalqgadek"
-        aria-expanded="false"
-      >
-        随心说
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/%E9%9A%8F%E5%BF%83%E8%AF%B4/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>1</span>
-      </a>
-      <div class="category-collapse">
-        
-          
-  <div id="collapse-ckiw11yz8000aowshalqgadek" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckiw11yz8000aowshalqgadek">
-    
-    
-    
-      
-      
-        <a href="/2020/11/18/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%BB%BD%E5%8D%9A%E5%AE%A2/" class="list-group-item list-group-item-action">
-          <span class="category-post">我的第一份博客</span>
-        </a>
-      
-    
-  </div>
-
-        
-      </div>
-    </div>
-  
-    
-    
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckiw11yzd000dowsh6k3ecwqe" role="tab" data-toggle="collapse" href="#collapse-ckiw11yzd000dowsh6k3ecwqe"
-        aria-expanded="false"
-      >
-        Java
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/Java/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>1</span>
-      </a>
-      <div class="category-collapse">
-        
-          
-  <div id="collapse-ckiw11yzd000dowsh6k3ecwqe" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckiw11yzd000dowsh6k3ecwqe">
-    
-    
-    
-      
-      
-        <a href="/2020/01/30/Java%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85(1.8%E7%89%88%E6%9C%AC%E5%AE%9E%E4%BE%8B)/" class="list-group-item list-group-item-action">
-          <span class="category-post">JAVA环境安装(1.8示例)</span>
-        </a>
-      
-    
-  </div>
-
-        
-      </div>
-    </div>
-  
-    
-    
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckiw11yzf000howsh5405f6lo" role="tab" data-toggle="collapse" href="#collapse-ckiw11yzf000howsh5405f6lo"
-        aria-expanded="false"
-      >
-        终端
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/%E7%BB%88%E7%AB%AF/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>1</span>
-      </a>
-      <div class="category-collapse">
-        
-          
-  <div id="collapse-ckiw11yzf000howsh5405f6lo" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckiw11yzf000howsh5405f6lo">
-    
-    
-    
-      
-      
-        <a href="/2020/02/05/WindowsTerminal%E9%85%8D%E7%BD%AE/" class="list-group-item list-group-item-action">
-          <span class="category-post">WindowsTerminal配置</span>
-        </a>
-      
-    
-  </div>
-
-        
-      </div>
-    </div>
-  
-    
-    
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckiw11yzr000vowsharjg75yl" role="tab" data-toggle="collapse" href="#collapse-ckiw11yzr000vowsharjg75yl"
-        aria-expanded="false"
-      >
-        博客
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/%E5%8D%9A%E5%AE%A2/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>1</span>
-      </a>
-      <div class="category-collapse">
-        
-          
-  <div id="collapse-ckiw11yzr000vowsharjg75yl" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckiw11yzr000vowsharjg75yl">
-    
-    
-    
-      
-      
-        <a href="/2020/11/21/%E6%90%AD%E5%BB%BA%E4%B8%80%E4%BB%BD%E5%B1%9E%E4%BA%8E%E4%BD%A0%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%90%A7/" class="list-group-item list-group-item-action">
-          <span class="category-post">搭建一份属于你的博客吧</span>
-        </a>
-      
-    
-  </div>
-
-        
-      </div>
-    </div>
-  
-    
-    
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-ckiw11yzu000zowshf3drc7ip" role="tab" data-toggle="collapse" href="#collapse-ckiw11yzu000zowshf3drc7ip"
-        aria-expanded="false"
-      >
-        C++
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/C/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>1</span>
-      </a>
-      <div class="category-collapse">
-        
-          
-  <div id="collapse-ckiw11yzu000zowshf3drc7ip" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-ckiw11yzu000zowshf3drc7ip">
-    
-    
-    
-      
-      
-        <a href="/2020/12/20/%E5%85%B3%E4%BA%8EC-%E4%B8%ADfstream%E4%BD%BF%E7%94%A8-ios-in%E6%88%96ios-out-%E5%9C%A8%E5%BD%93%E6%96%87%E4%BB%B6%E4%B8%8D%E5%AD%98%E5%9C%A8%E6%97%B6%E4%B8%8D%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E8%80%8C%E6%98%AF%E6%89%93%E5%BC%80%E9%94%99%E8%AF%AF/" class="list-group-item list-group-item-action">
-          <span class="category-post">关于C++中fstream使用(ios::in|ios::out)在当文件不存在时不创建文件而是打开错误</span>
-        </a>
-      
-    
-  </div>
-
-        
-      </div>
-    </div>
-  
 </div>
 
               </div>
@@ -468,6 +322,8 @@
 
 
 
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.3.0/anchor.min.js" ></script>
 
 
 
