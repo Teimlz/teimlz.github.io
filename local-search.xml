@@ -142,17 +142,6 @@
   
   
   <entry>
-    <title>Java工具包:Hutool的推荐</title>
-    <link href="/"/>
-    <url>/</url>
-    
-    <content type="html"><![CDATA[]]></content>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>JAVA环境安装(1.8示例)</title>
     <link href="/"/>
     <url>/</url>
@@ -164,22 +153,22 @@
   
   
   <entry>
-    <title>about</title>
+    <title>Java工具包:Hutool的推荐</title>
     <link href="/"/>
     <url>/</url>
     
-    <content type="html"><![CDATA[<p> 一名想要创建一个属于自己的程序的小菜鸟.还处于大三的我,目前还在努力。</p>]]></content>
+    <content type="html"><![CDATA[]]></content>
     
   </entry>
   
   
   
   <entry>
-    <title>我的第一份博客</title>
+    <title>about</title>
     <link href="/"/>
     <url>/</url>
     
-    <content type="html"><![CDATA[<h3 id="我的第一份博客"><a href="#我的第一份博客" class="headerlink" title="我的第一份博客"></a>我的第一份博客</h3><p>在今天，我使用了Hexo+Github Pages搭建了这一份自己的静态博客,原本之前是在<a href="https://www.jianshu.com/u/b8e4d58db7d4">简书-筏执</a>上面写博客的，但是后来总想着自己搭建一个博客系统,自己慢慢写,虽然,这样看的人更少了，但是,博客有时候不是写给别人看的，更多的是写给自己，给自己这个粗心大意的人提个醒。</p><p>现如今我以及大三了，再过一年便要出入社会了，回忆起自己在大学的时光里，自己的时间匆匆流过,以前想的大学里面做的事情，现如今一件事情也没有完成，反而觉得越来越远了。</p><p>自己的事情,终究要自己去解决，虽然有时候放弃是最好的选择，但是,当在劫难逃，索性不逃！</p>]]></content>
+    <content type="html"><![CDATA[<p> 一名想要创建一个属于自己的程序的小菜鸟.还处于大三的我,目前还在努力。</p>]]></content>
     
   </entry>
   
@@ -213,6 +202,17 @@
     <url>/</url>
     
     <content type="html"><![CDATA[<p>&emsp;&emsp;在Java中,经常会见到以下方法:</p><pre><code class="hljs reasonml">String trueStr = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">String</span>.</span></span>value<span class="hljs-constructor">Of(<span class="hljs-params">true</span>)</span>; <span class="hljs-comment">//类型转换</span>final String <span class="hljs-literal">[]</span>arrays = &#123;<span class="hljs-string">&quot;Hello World&quot;</span>,<span class="hljs-string">&quot;Hello Effective Java&quot;</span>,<span class="hljs-string">&quot;Hello Effective Java&quot;</span>&#125;;List&lt;String&gt; strings = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Arrays</span>.</span></span><span class="hljs-keyword">as</span><span class="hljs-constructor">List(<span class="hljs-params">arrays</span>)</span>; <span class="hljs-comment">//数组转List</span>Calendar instance = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Calendar</span>.</span></span>get<span class="hljs-constructor">Instance()</span>; <span class="hljs-comment">//获取单利对象</span> boolean isEmpty = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">StringUtils</span>.</span></span>is<span class="hljs-constructor">Empty(<span class="hljs-params">str</span>)</span>;<span class="hljs-comment">//判断字符串是否为空</span></code></pre><p>&emsp;&emsp;这些,通常拥有着<code>public</code>,<code>static</code>的特点的方法,能够通过参数或者无参数,创建出需要的对象.</p><p>&emsp;&emsp;这些方法,就是静态工厂方法.通常都躺在我们的工具箱里面,安安静静的等等着我们去调用.<br>(注意,静态工厂方法与设计模式中的工厂方法模式不同.)</p><p>&emsp;&emsp;提供静态工厂方法而不是公有的构造器,这样既有优势,也有劣势.</p><blockquote><p>优势</p></blockquote><ol><li><p>它们拥有名称.<br>如果构造器的参数本身没有确切地描述正被返还的对象,那么具有适当名称的静态工厂会更容易适用,代码也更容易阅读.因为我相信静态方法名应该是十分明确的.</p></li><li><p>不必要每次调用它们的时候都创建一个对象.<br>这使得不可变类(被final声明的类)可以使用预先构建好的实例(对象),或者将构建好的实例缓存起来,进行重复利用,从而避免不必要的重复对象.</p></li><li><p>可以返回原返回类型的任何子类型.<br>这使得我们在选择返回对象的类时,就拥有了更大的灵活性.,这使得API可以返回对象,同时又不会使对象的类变成公有的.</p></li><li><p>可以通过参数的不同,而返回不同的实例.  </p></li><li><p>方法返回的对象所示的类,在编写包含该静态工厂方法的类时可以不存在.</p></li></ol>]]></content>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>我的第一份博客</title>
+    <link href="/"/>
+    <url>/</url>
+    
+    <content type="html"><![CDATA[<h3 id="我的第一份博客"><a href="#我的第一份博客" class="headerlink" title="我的第一份博客"></a>我的第一份博客</h3><p>在今天，我使用了Hexo+Github Pages搭建了这一份自己的静态博客,原本之前是在<a href="https://www.jianshu.com/u/b8e4d58db7d4">简书-筏执</a>上面写博客的，但是后来总想着自己搭建一个博客系统,自己慢慢写,虽然,这样看的人更少了，但是,博客有时候不是写给别人看的，更多的是写给自己，给自己这个粗心大意的人提个醒。</p><p>现如今我以及大三了，再过一年便要出入社会了，回忆起自己在大学的时光里，自己的时间匆匆流过,以前想的大学里面做的事情，现如今一件事情也没有完成，反而觉得越来越远了。</p><p>自己的事情,终究要自己去解决，虽然有时候放弃是最好的选择，但是,当在劫难逃，索性不逃！</p>]]></content>
     
   </entry>
   
