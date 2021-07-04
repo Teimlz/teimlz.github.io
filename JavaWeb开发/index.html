@@ -17,9 +17,23 @@
   <meta name="description" content="这是我的小笔记本,主要要用记录学习过程,当然也会记录一些随心笔记.">
   <meta name="author" content="筏执">
   <meta name="keywords" content="">
-  <title>归档 - 筏执的小笔记本</title>
+  <title>JavaWeb开发 - 筏执的小笔记本</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.1.2/styles/github-gist.min.css" />
+    
+  
+
+  
 
 
 
@@ -158,7 +172,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="归档">
+            <span class="h2" id="subtitle" title="JavaWeb开发">
               
             </span>
 
@@ -182,25 +196,42 @@
               <div class="col-12 col-md-10 m-auto">
                 
 
-<div class="list-group">
-  <p class="h4">共计 6 篇文章</p>
-  <hr>
-  
-  
-    
-      
-      <p class="h5">2020</p>
-    
-    <a href="/2020/01/30/Java%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85(1.8%E7%89%88%E6%9C%AC%E5%AE%9E%E4%BE%8B)/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">JAVA环境安装(1.8示例)</span>
-      <time style="float: right;">01-30</time>
-    </a>
-  
+<div class="page-content">
+  <h2 id="什么是Web"><a href="#什么是Web" class="headerlink" title="什么是Web?"></a>什么是Web?</h2><p>&emsp;&emsp;Web的本意是网的意思，而在计算机领域中，Web则是**万维网WWW(World Wide Web)**的简称，现如今广泛翻译成网络，万维网，互联网等。</p>
+<p>万维网是一个巨大的资源空间。每一个资源都由一个全域的<strong>统一资源标识符（URL）</strong>进行标识，我们可以使用这些标识符，通过<strong>超文本传输协议（HyperText Transfer Protocol,HHTP）</strong>来获取这些资源。所以可以说，万维网或者说是Web是一个通过网络进行互联的超文件系统。</p>
+<h2 id="如何开发一个Web"><a href="#如何开发一个Web" class="headerlink" title="如何开发一个Web?"></a>如何开发一个Web?</h2><p>&emsp;&emsp;一个Web的构成，一般都是由<strong>HTML</strong>作为骨架，<strong>CSS</strong>作为界面渲染，<strong>JavaScript（JS）</strong>作为事件处理构成。开发一个基本的Web是十分简单的，比如说，你现在创建一个文件，后缀名为**.html<strong>或</strong>htm**。将以下代码复制到其中，然后使用浏览器打开，即可完成一个简单的网页。</p>
+<pre><code class="hljs xml"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;zh&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;X-UA-Compatible&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;IE=edge&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Document<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    Hello World;
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+
+<p>然后，你就会发现，浏览器显示了其中的<strong>Hello World</strong>。</p>
+<img src="E:\Teimlz\source\JavaWeb开发\1.png" srcset="/img/loading.gif" alt="简单的Web运行结果" style="zoom: 50%;" />
+
+<p>&emsp;&emsp;当然，这只是Web中的资源，浏览器通过解析该资源，将各式各样的美丽世界呈现在我们面前。我们如果要将该资源分享给别人，那么，我们就需要通过一个协议了，那就是<strong>HTTP(超文本传输)协议</strong>。</p>
+<h2 id="HTTP-HyperText-Transfer-Protocol-超文本传输协议"><a href="#HTTP-HyperText-Transfer-Protocol-超文本传输协议" class="headerlink" title="HTTP(HyperText Transfer Protocol,超文本传输协议)"></a>HTTP(HyperText Transfer Protocol,超文本传输协议)</h2><p>&emsp;&emsp;了解一个网络协议，必然离不开网络。我们先了解一下<strong>开放式系统互联（Open System Interconnect， OSI）</strong>,简称<strong>OSI参考模型</strong>。其定义了**网络互联的七层框架结构(物理层、数据链路层、网络层、传输层、会话层、表现层、应用层)**。</p>
+<img src="E:\Teimlz\source\JavaWeb开发\2.png" srcset="/img/loading.gif" alt="preview" style="zoom: 80%;" />
+
+<p>&emsp;&emsp;从图中我们可以看到，HTTP协议是属于OSI模型中的第5，6，7层的。而这三层分别是会话层、表现层、应用层。在现在的一些书中，已经开始使用了<strong>OSI五层模型</strong>（我的教科书上就是OSI五层模型，它将5，6，7层合成了一层，即应用层）。在这里因为篇幅原因，不想写太多，可以看看<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/50901704">知乎 如何通俗易懂地讲解网络七层协议？</a>。</p>
+<p>&emsp;&emsp;好了，知道了HTTP处于什么地位，那么我们开始了解？</p>
+<p>​        &emsp;&emsp;你以为我会开始详细的写HTTP？不，我偷懒了。网上明明有那么多，为什么我还要写？</p>
+<p>​                这篇写的不错~：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_35703848/article/details/103404926">CSDN HTTP、HTTP2.0 详解</a></p>
+<p>​                菜鸟教程？<a target="_blank" rel="noopener" href="https://www.runoob.com/http/http-tutorial.html">HTTP教程</a></p>
+<p>&emsp;&emsp;了解了协议后，当然是自己实现协议来玩啊~</p>
+<h2 id="如何使用Java开发Web"><a href="#如何使用Java开发Web" class="headerlink" title="如何使用Java开发Web?"></a>如何使用Java开发Web?</h2><p>&emsp;&emsp;Java是一个<strong>面向对象</strong>的高级语言，它经常浪迹在Web的后台中，负责处理前端JS传递过来的数据。在<strong>Java EE</strong>中，有一个叫做<strong>JSP</strong>的词语。</p>
+<p>&emsp;&emsp;<strong>JSP(Java Server Pages)**是由</strong>Sun Microsystems<strong>公司倡导，许多公司一起参与建立的一种</strong>动态网页技术标准<strong>。与ASP.NET、PHP并列为三大后台编程语言。如果你了解过PHP的话，相信你就会了解</strong>JSP**，简单说一下：在HTML中嵌入Java代码，通过Java使其动态生成HTML。</p>
+<p>&emsp;&emsp;好了，这样，我们就可以使用JSP来进行Web开发。当然，现在JSP似乎过时了？好像都是使用Spring框架+Ajax技术进行开发了？但是，即使过时了，但是我们也要了解，因为这对于Java的Web开发理解是十分重要的，而有些公司，也依旧使用着JSP。</p>
+<h2 id="如何将自己的网站通过网络展示给别人看？"><a href="#如何将自己的网站通过网络展示给别人看？" class="headerlink" title="如何将自己的网站通过网络展示给别人看？"></a>如何将自己的网站通过网络展示给别人看？</h2><p>&emsp;&emsp;</p>
+
 </div>
-
-
-
-
 
               </div>
             </div>
@@ -295,6 +326,8 @@
 
 
 
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.3.0/anchor.min.js" ></script>
 
 
 
